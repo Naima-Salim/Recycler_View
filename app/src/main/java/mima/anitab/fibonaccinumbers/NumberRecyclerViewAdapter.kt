@@ -14,7 +14,6 @@ RecyclerView.Adapter<NumberRecyclerViewAdapter.NumberViewHolder>() {
         return NumberViewHolder(itemView)
     }
 
-
     override fun onBindViewHolder(holder: NumberViewHolder, position: Int) {
         holder.tvNumber.text = numberList.get(position).toString()
     }
@@ -22,7 +21,6 @@ RecyclerView.Adapter<NumberRecyclerViewAdapter.NumberViewHolder>() {
     override fun getItemCount(): Int {
         return numberList.size
     }
-
 
     class NumberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvNumber = itemView.findViewById<TextView>(R.id.tvNumber)

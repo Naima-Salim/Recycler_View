@@ -12,24 +12,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var numberList=fibonacciNumbers(100)
-        println(numberList)
-        binding.rvNumbers.layoutManager = LinearLayoutManager(this)
-        binding.rvNumbers.adapter =NumberRecyclerViewAdapter(numberList)
-
+        fibonacciNumbers()
     }
-    fun fibonacciNumbers(size:Int):List<Int>{
-        var numbers = listOf<Int>()
-        var num1 = 0
+    fun fibonacciNumbers(){
+        var num1 =0
         var num2 = 1
-        var number = 0
+        var numbers = mutableListOf<Int>()
 
-        while (number < size){
-            var sum = num1+num2
-            num1=num2
-            num2=sum
-            number++
+        for (i in 1..100) {
+            numbers.add(num1)
+
+            val sum = num1 + num2
+            num1 = num2
+            num2 = sum
         }
-        return numbers
-    }
+        var numbAdapter=NumberRecyclerViewAdapter(numbers)
+        binding.rvNumbers.layoutManager = LinearLayoutManager(this)
+        binding.rvNumbers.adapter=numbAdapter
+
+        }
+
 }
